@@ -34,7 +34,11 @@ function Account() {
           <p className="mt-1 text-sm text-muted">{user?.email}</p>
         </div>
         <div className="flex gap-2">
-          
+          {isAdmin && (
+            <Link to="/admin" className="flex items-center gap-2 rounded-full bg-emerald-900 px-5 py-2.5 text-sm font-semibold text-ivory">
+              <Shield size={16} /> Admin panel
+            </Link>
+          )}
           <button type="button" onClick={async () => { await signOut(); navigate({ to: '/auth', replace: true }) }} className="flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold hover:bg-sand">
             <LogOut size={16} /> Sign out
           </button>
